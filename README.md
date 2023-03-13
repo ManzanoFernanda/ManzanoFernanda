@@ -14,7 +14,7 @@
 <h3 align="center">### 🛠 &nbsp;Tech Stack:</h3>
 
 
-<img alt="[Night Coding" src="https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif](https://media.tenor.com/AlUkiGkR2j8AAAAM/new-game-ahagon-umiko-programming.gif)" align="right"/>
+<img src="[https://raw.githubusercontent.com/AVS1508/AVS1508/master/assets/Night-Coding.gif](https://media.tenor.com/AlUkiGkR2j8AAAAM/new-game-ahagon-umiko-programming.gif)](https://media.tenor.com/AlUkiGkR2j8AAAAM/new-game-ahagon-umiko-programming.gif)" align="right"/>
 
 ### 🛠 &nbsp;Tech Stack
 

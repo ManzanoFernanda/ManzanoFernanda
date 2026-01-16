@@ -1,0 +1,223 @@
+/* MEMPHIS DESIGN - RESUME SECTION */
+.resume__container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.timeline {
+  background-color: var(--container-color);
+  padding: 2rem;
+  border: var(--border-thick);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+/* Memphis decorative corner */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 40px;
+  height: 40px;
+  background: var(--memphis-yellow);
+  border: var(--border-thick);
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 20px;
+  width: 25px;
+  height: 25px;
+  background: var(--memphis-pink);
+  border: var(--border-medium);
+  border-radius: 50%;
+}
+
+.timeline__item {
+  position: relative;
+  padding-left: 3.5rem;
+  padding-bottom: 3rem;
+}
+
+.timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+/* Memphis zigzag timeline line */
+.timeline__item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0.35rem;
+  width: 4px;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--memphis-teal) 0px,
+    var(--memphis-teal) 10px,
+    var(--memphis-yellow) 10px,
+    var(--memphis-yellow) 20px,
+    var(--memphis-pink) 20px,
+    var(--memphis-pink) 30px
+  );
+}
+
+.timeline .icon-briefcase,
+.timeline .icon-graduation {
+  position: absolute;
+  left: -0.6rem;
+  top: 0;
+  font-size: var(--h2-font-size);
+  color: var(--memphis-black);
+  background-color: var(--memphis-yellow);
+  border: var(--border-medium);
+  padding: 0.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline__icon-logo {
+  position: absolute;
+  left: 0.35rem;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  background-color: transparent;
+  border: var(--border-medium);
+  padding: 0;
+  border-radius: 50%;
+  display: block;
+  transform: translateX(-50%);
+}
+
+.timeline .icon-graduation {
+  background-color: var(--memphis-pink);
+}
+
+.timeline__date {
+  color: var(--memphis-purple);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.timeline__section-title {
+  font-size: var(--h3-font-size);
+  font-family: var(--heading-font);
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+  text-transform: uppercase;
+}
+
+.timeline__title {
+  font-size: var(--h3-font-size);
+  font-family: var(--heading-font);
+  letter-spacing: 2px;
+  margin: 0.5rem 0;
+}
+
+.timeline__text {
+  line-height: 1.8;
+}
+
+/* Resume Link Button */
+.resume__link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.5rem;
+  background-color: var(--memphis-yellow);
+  color: var(--memphis-black);
+  border: var(--border-medium);
+  font-weight: var(--font-bold);
+  font-family: var(--heading-font);
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  font-size: 0.75rem;
+  transition: all 0.2s ease;
+  box-shadow: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  padding: 0.25rem 0.6rem;
+  min-width: 28px;
+  min-height: 28px;
+}
+
+/* Buttons with icons (square, less padding) */
+.resume__link-btn svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.resume__link-btn:has(svg) {
+  padding: 0.25rem;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  min-height: 28px;
+}
+
+.resume__link-btn:hover {
+  background-color: var(--memphis-pink);
+  transform: translate(-2px, -2px);
+  box-shadow: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .resume__container {
+    max-width: 100%;
+  }
+
+  .timeline__item::before {
+    left: 2px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .resume__container {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .resume__container {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .timeline__item {
+    padding-left: 2.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .timeline__item::before {
+    left: 0;
+  }
+
+  .timeline .icon-briefcase,
+  .timeline .icon-graduation {
+    left: -12px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .timeline__text {
+    text-align: justify;
+  }
+}

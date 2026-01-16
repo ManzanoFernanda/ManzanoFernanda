@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Profesional</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.2;
+            color: #333;
+            background: #f5f5f5;
+            padding: 5px;
+            margin: 0;
+            font-size: 16px;
+        }
+        
+        .cv-container {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            background: transparent;
+            color: #2c3e50;
+            padding: 15px 30px 5px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            flex-shrink: 0;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .name {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        
+        .position {
+            font-size: 1.5em;
+            opacity: 0.95;
+            font-weight: 400;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 1.1em;
+            margin-top: 0;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            opacity: 0.95;
+        }
+        
+        .location-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5px;
+            margin-bottom: 0;
+            opacity: 0.95;
+            font-size: 1.0em;
+        }
+        
+        .location-info svg {
+            margin-right: 5px;
+        }
+        
+        .main-content {
+            padding: 5px 20px;
+            flex-grow: 1;
+        }
+        
+        .section {
+            margin-bottom: 15px;
+        }
+        
+        .section.experience {
+            margin-top: 10px;
+        }
+        
+        .section.projects {
+            margin-top: 10px;
+        }
+        
+        .section.education {
+            margin-top: 10px;
+        }
+        
+        .section-title {
+            font-size: 1em;
+            color: #2c3e50;
+            border-bottom: 1px solid #3498db;
+            padding-bottom: 2px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .experience-item, .project-item {
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+        }
+        
+        .education-item {
+            margin-bottom: 5px;
+            padding-bottom: 5px;
+        }
+        
+        .experience-item:last-child, .education-item:last-child, .project-item:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0px;
+        }
+        
+        .job-title, .project-title {
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            margin-top: 5px;
+            line-height: 1.1;
+        }
+        
+        .course-title {
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 3px;
+            margin-top: 5px;
+            line-height: 1.1;
+        }
+        
+        .course-title .institution {
+            font-weight: 400;
+            color: #3498db;
+            font-size: 1.1em;
+        }
+        
+        .udemy-course-entry {
+            font-size: 0.9em;
+            font-weight: normal;
+            color: #2c3e50;
+            margin-bottom: 1px;
+            line-height: 1.1;
+        }
+        
+        .udemy-institution {
+            font-weight: 400;
+            color: #3498db;
+            font-size: 1.1em;
+        }
+        
+        .project-title .project-name {
+            font-weight: 400;
+            color: #3498db;
+            font-size: 1.1em;
+        }
+        
+        .project-title .date-location {
+            font-weight: 400;
+            color: #2c3e50;
+            font-size: 1em;
+        }
+        
+        .course-title .date-location {
+            font-weight: 400;
+            color: #2c3e50;
+            font-size: 1em;
+        }
+        
+        
+        .job-title .company {
+            font-weight: 400;
+            color: #3498db;
+            font-size: 1.1em;
+        }
+        
+        .job-title .date-location {
+            font-weight: 400;
+            color: #2c3e50;
+            font-size: 1em;
+        }
+        
+        .job-title {
+            margin-bottom: 5px;
+        }
+        
+        .company, .institution {
+            font-size: 0.8em;
+            color: #3498db;
+            font-weight: 500;
+            margin-bottom: 1px;
+        }
+        
+        .date-location {
+            font-size: 1em;
+            color: #7f8c8d;
+            margin-bottom: 3px;
+            font-style: italic;
+        }
+        
+        .description {
+            color: #555;
+            line-height: 1.15;
+            font-size: 0.9em;
+        }
+        
+        .description ul {
+            padding-left: 10px;
+            margin-top: 2px;
+            margin-bottom: 0;
+        }
+        
+        .description li {
+            margin-bottom: 2px;
+        }
+        
+        .description ul ul {
+            margin-top: 2px;
+            margin-bottom: 2px;
+            padding-left: 20px;
+        }
+        
+        .description ul ul li {
+            margin-bottom: 1px;
+            font-size: 0.85em;
+        }
+        
+        .description p {
+            margin-bottom: 8px;
+            margin-top: 5px;
+        }
+        
+        .summary {
+            background: #f8f9fa;
+            padding: 8px 15px;
+            margin: 10px 0;
+            border-left: 3px solid #3498db;
+            font-size: 0.9em;
+            line-height: 1.4;
+            color: #555;
+        }
+        
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .export-buttons {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+        
+        .export-button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 2px 10px rgba(52, 152, 219, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .export-button.image-button {
+            background: #27ae60;
+            box-shadow: 0 2px 10px rgba(39, 174, 96, 0.3);
+        }
+        
+        .export-button.image-button:hover {
+            background: #229954;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.4);
+        }
+        
+        .export-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .export-button:active {
+            transform: translateY(0);
+        }
+        
+        @media print {
+            .export-buttons {
+                display: none;
+            }
+            
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .cv-container {
+                box-shadow: none;
+                border-radius: 0;
+                width: 210mm;
+                height: 297mm;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .header {
+                page-break-inside: avoid;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-info {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .main-content {
+                padding: 30px 20px;
+            }
+            
+            .name {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="header-content">
+                <h1 class="name">DANIELA MANZANO</h1>
+                <p class="position">Mobile & Frontend Developer</p>
+                <div class="contact-info">
+                    <div class="contact-item">danielamanzano.dev@gmail.com</div>
+                    <div class="contact-item"><a href="https://linkedin.com/in/danielamanzano" target="_blank">linkedin.com/in/danielamanzano</a></div>
+                </div>
+                <div class="location-info">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 5px;">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>Córdoba - Argentina</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Summary Section -->
+            <div class="summary">
+                Técnica en Desarrollo de Software con más de 3 años de experiencia especializada en desarrollo Frontend y Mobile, trabajando con React, Next.js y React Native. Tengo experiencia comprobada en la gestión de múltiples proyectos en simultáneo y en la entrega de soluciones integrales, participando activamente desde el diseño hasta el despliegue en producción.<br><br>
+                He colaborado en aplicaciones con más de 10.000 usuarios activos, con lanzamientos exitosos en App Store y Google Play, enfocándome en la calidad del producto, la experiencia de usuario y la estabilidad a largo plazo.
+            </div>
+            
+            <!-- Experience Section -->
+            <div class="section experience">
+                <h2 class="section-title">EXPERIENCIA PROFESIONAL</h2>
+                
+                <div class="experience-item">
+                    <h3 class="job-title"><span class="company">Grupo Taurus</span> - Mobile Developer & Frontend Developer - <span class="date-location">Mar 2025 - Actualidad</span></h3>
+                    <div class="description">
+                        <p>Encargada del desarrollo Frontend y Mobile de la empresa, responsable de múltiples proyectos simultáneos en diferentes stacks tecnológicos. Gestiono el ciclo completo de desarrollo desde el diseño hasta el deployment, adaptándome a las necesidades técnicas de cada proyecto.</p>
+                        <ul>
+                            <li><strong>Ecommerce (Frontend React):</strong> <a href="https://gimnasiotaurus.com/" target="_blank">gimnasiotaurus.com</a>
+                                <p>Desarrollo completo del frontend con Next.js 15, TypeScript y Tailwind CSS. Sistema de autenticación con persistencia de token y gestión de estado con Context API. Integración con Google Maps API, Payphone para pagos y servicio Vimeo. UTM Tracking completo, métricas de conversión y seguimiento de comportamiento. Optimizaciones de performance con lazy loading y SEO. Diseño responsive con animaciones y arquitectura escalable.</p>
+                            </li>
+                            <li><strong>Taurus App (Mobile Developer):</strong> <a href="https://play.google.com/store/apps/details?id=com.taurusapp&hl=es_AR" target="_blank">Google Play Store</a>
+                                <p>Desarrollo en React Native conectado al ecommerce con APIs REST. Autenticación completa: registro, login, verificación email y biométrica (Face ID/Touch ID). Notificaciones push con OneSignal, gestión de estados, permisos y errores de red. Sistema de caché, geolocalización, video splash screen y validaciones de formularios. Desarrollo completo desde UX/UI hasta deployment en App Store y Google Play. Resultado: +10,000 usuarios activos, mejorando experiencia y consistencia entre plataformas.</p>
+                            </li>
+                            <li><strong>Totem Autoservicio (Frontend MAUI):</strong>
+                                <p>Desarrollo de interfaz de usuario para aplicación multiplataforma con .NET 9 MAUI, Blazor y MudBlazor UI Framework. Diseño de componentes reutilizables con HTML5/CSS3 y Razor Components. Arquitectura MVVM y diseño orientado a pantalla de totem.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <h3 class="job-title"><span class="company">Nolock Dev</span> - Desarrollador Frontend React - UI/UX - Tester - <span class="date-location">Jun 2022 - Dic 2024</span></h3>
+                    <div class="description">
+                        <p>Trabajo freelance para startup de desarrollo, donde gestioné múltiples proyectos de diferentes clientes alternando entre desarrollo frontend, diseño UI/UX y testing según las necesidades de la empresa.</p>
+                        <ul>
+                            <li><strong>Holitrends (QA Tester):</strong> <a href="https://holitrends.com/" target="_blank">holitrends.com</a>
+                                <p>Testing End-to-end completo para sistema CRM de agencias de viajes en donde realicé casos de prueba comprensivos que validaron los flujos críticos del usuario y procesos de interacción con la web utilizando Cypress.io.</p>
+                            </li>
+                            <li><strong>HPY Camper (UI/UX - Frontend React):</strong> <a href="https://www.hpycamper.se/" target="_blank">hpycamper.se</a>
+                                <p>Desarrollo completo desde el diseño con Figma hasta frontend con Next.js y Tailwind CSS para una plataforma de reservas de camping Sueca. Se priorizaron la arquitectura escalable y los componentes reutilizables. Se integró con Stripe API para los pagos, Google Maps API para localización. Todo el diseño fue responsivo.</p>
+                            </li>
+                            <li><strong>Alize 2.0 (UI/UX - Frontend .NET):</strong> <a href="https://alize.es/" target="_blank">alize.es</a>
+                                <p>Rediseño completo y desarrollo front-end de plataforma de garantías automotriz radicada en España. Se utilizó arquitectura modular con componentes reutilizables. Dashboard interactivo con métricas en tiempo real. El diseño se realizó con Figma y el desarrollo en Blazor.</p>
+                            </li>
+                            <li><strong>Hypervisoul (UI/UX Designer):</strong> <a href="https://hypervisoul.com/es/" target="_blank">hypervisoul.com/es</a>
+                                <p>Diseño completo de interfaz web para aplicación de monitoreo de tráfico en tiempo real. Utilizando Figma creé Wireframes, mockups interactivos y prototipos funcionales con Design Thinking con un sistema de diseño coherente y escalable.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <h3 class="job-title"><span class="company">FabricArg</span> - Pasantía Universitaria - <span class="date-location">Feb 2022 - Jul 2022</span></h3>
+                    <div class="description">
+                        <ul>
+                            <li>En la pasantía aprendí a implementar laboralmente desarrollo con C# y SQL Server. El aprendizaje se enfocó en el análisis y resolución de problemas utilizando estándares de codificación y optimización de rendimiento. Implementé consultas SQL complejas, stored procedures y triggers para gestión de datos, y desarrollo de APIs REST con Entity Framework.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+
+            </div>
+            
+            <!-- Education Section -->
+            <div class="section education">
+                <h2 class="section-title">EDUCACIÓN Y CURSOS</h2>
+                
+                <div class="education-item">
+                    <h3 class="course-title">Tecnicatura en Desarrollo de Software - <span class="institution">Instituto técnico superior Córdoba</span> - <span class="date-location">2020 - 2024</span></h3>
+
+                </div>
+                
+                
+                <div class="education-item">
+                    <h3 class="course-title">Programación orientada a machine learning - <span class="institution">Instituto Politécnico Córdoba</span> - <span class="date-location">2023</span></h3>
+
+                </div>
+                
+                <div class="education-item">
+                    <h3 class="course-title">Docker, Kubernetes, Jenkins, AWS & Git - <span class="institution">Udemy</span></h3>
+                </div>
+                
+                <div class="education-item">
+                    <h3 class="course-title">React y Redux, React Router, TailwindCSS, Context & Hooks - <span class="institution">Udemy</span></h3>
+                </div>
+                
+                <div class="education-item">
+                    <h3 class="course-title">Diseño web y móvil con Figma - <span class="institution">Udemy</span></h3>
+                </div>
+                
+                <div class="education-item">
+                    <h3 class="course-title">Blazor - .NET Core 3.1 & WebAssembly - <span class="institution">Udemy</span></h3>
+                </div>
+                
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Botones de descarga -->
+    <div class="export-buttons">
+    <button class="export-button" onclick="downloadPDF()">
+        📄 Descargar PDF
+    </button>
+        <button class="export-button image-button" onclick="downloadImage()">
+            🖼️ Descargar Imagen
+        </button>
+    </div>
+    
+    <script>
+        function downloadPDF() {
+            const element = document.querySelector('.cv-container');
+            const buttons = document.querySelector('.export-buttons');
+            
+            // Ocultar los botones temporalmente
+            buttons.style.display = 'none';
+            
+            // Obtener las dimensiones exactas del contenedor
+            const rect = element.getBoundingClientRect();
+            const width = rect.width;
+            const height = rect.height;
+            
+            const opt = {
+                margin: 0,
+                filename: 'CV_Daniela_Manzano.pdf',
+                image: { type: 'jpeg', quality: 1.0 },
+                html2canvas: { 
+                    scale: 3,
+                    useCORS: true,
+                    letterRendering: true,
+                    allowTaint: true,
+                    backgroundColor: '#ffffff',
+                    width: width,
+                    height: height,
+                    scrollX: 0,
+                    scrollY: 0
+                },
+                jsPDF: { 
+                    unit: 'px', 
+                    format: [width, height], 
+                    orientation: 'portrait',
+                    compress: false
+                }
+            };
+            
+            // Descargar PDF automáticamente
+            html2pdf().set(opt).from(element).save().then(() => {
+                // Mostrar los botones nuevamente
+                buttons.style.display = 'flex';
+            });
+        }
+        
+        function downloadImage() {
+            const element = document.querySelector('.cv-container');
+            const buttons = document.querySelector('.export-buttons');
+            
+            // Ocultar los botones temporalmente
+            buttons.style.display = 'none';
+            
+            // Obtener las dimensiones exactas del contenedor
+            const rect = element.getBoundingClientRect();
+            
+            html2canvas(element, {
+                scale: 2,
+                useCORS: true,
+                letterRendering: true,
+                allowTaint: true,
+                backgroundColor: '#ffffff',
+                width: rect.width,
+                height: rect.height,
+                scrollX: 0,
+                scrollY: 0
+            }).then(canvas => {
+                // Convertir canvas a imagen
+                const imgData = canvas.toDataURL('image/png');
+                
+                // Crear un enlace temporal para descargar
+                const link = document.createElement('a');
+                link.download = 'CV_Daniela_Manzano.png';
+                link.href = imgData;
+                link.click();
+                
+                // Mostrar los botones nuevamente
+                buttons.style.display = 'flex';
+            }).catch(error => {
+                console.error('Error al generar imagen:', error);
+                // Mostrar los botones nuevamente incluso si hay error
+                buttons.style.display = 'flex';
+            });
+        }
+    </script>
+</body>
+</html>

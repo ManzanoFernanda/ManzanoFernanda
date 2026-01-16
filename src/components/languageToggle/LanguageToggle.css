@@ -1,0 +1,41 @@
+/* MEMPHIS DESIGN - LANGUAGE TOGGLE */
+.lang-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 5.5rem; /* leaves room for ThemeToggle */
+  z-index: 9999;
+  display: inline-flex;
+  gap: 0;
+  padding: 4px;
+  border: var(--border-thick);
+  background: var(--container-color);
+  box-shadow: var(--shadow-sm);
+  border-radius: 0;
+}
+
+.lang-toggle__btn {
+  border: none;
+  background: transparent;
+  color: var(--title-color);
+  padding: 8px 14px;
+  font-weight: var(--font-bold);
+  font-family: var(--heading-font);
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.lang-toggle__btn:hover {
+  background: var(--memphis-yellow);
+  color: var(--memphis-black);
+}
+
+.lang-toggle__btn--active {
+  background: var(--memphis-pink);
+  color: var(--memphis-black);
+  box-shadow: 2px 2px 0px var(--memphis-black);
+}
+
+

@@ -49,38 +49,6 @@ const daniela = {
 
 ---
 
-### 📊 GitHub Stats
-
-<div align="center">
-  <table>
-    <tr>
-      <td>
-        <img 
-          align="center" 
-          src="https://github-readme-stats.vercel.app/api?username=ManzanoFernanda&theme=dark&hide_border=false&include_all_commits=true&count_private=true&show_icons=true" 
-          alt="GitHub Stats"
-        />
-      </td>
-      <td>
-        <img 
-          align="center" 
-          src="https://github-readme-stats.vercel.app/api/top-langs/?username=ManzanoFernanda&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact&langs_count=8" 
-          alt="Top Languages"
-        />
-      </td>
-    </tr>
-  </table>
-</div>
-
-<div align="center">
-  <img 
-    src="https://github-readme-streak-stats.herokuapp.com/?user=ManzanoFernanda&theme=dark&hide_border=false" 
-    alt="GitHub Streak"
-  />
-</div>
-
----
-
 ### 🚀 Featured Projects
 
 - **Taurus App** - React Native mobile app with 10,000+ active users
@@ -99,17 +67,6 @@ const daniela = {
   <a href="mailto:danielamanzano.dev@gmail.com" target="_blank">
     <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail"/>
   </a>
-</div>
-
----
-
-### 👀 Profile Views
-
-<div align="center">
-  <img 
-    src="https://profile-counter.glitch.me/ManzanoFernanda/count.svg" 
-    alt="Profile visitors"
-  />
 </div>
 
 ---

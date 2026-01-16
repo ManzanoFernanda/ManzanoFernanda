@@ -90,17 +90,6 @@ const daniela = {
 
 ---
 
-### 📈 GitHub Activity
-
-<div align="center">
-  <img 
-    src="https://github-readme-activity-graph.vercel.app/graph?username=ManzanoFernanda&theme=dark&hide_border=true&area=true" 
-    alt="GitHub Activity Graph"
-  />
-</div>
-
----
-
 ### 📫 Connect with Me
 
 <div align="center">

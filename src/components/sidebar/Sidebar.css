@@ -51,10 +51,23 @@
 	color: var(--memphis-black);
 }
 
+.nav__header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+}
+
 .nav__footer {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	gap: 1rem;
+}
+
+.sidebar__lang-toggle {
+	display: none;
 }
 
 .copyright {
@@ -144,6 +157,12 @@
 
 	.show-menu {
 		left: 0;
+	}
+
+	.sidebar__lang-toggle {
+		display: flex;
+		justify-content: center;
+		width: 100%;
 	}
 }
 

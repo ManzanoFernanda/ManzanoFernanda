@@ -117,12 +117,82 @@
 
 @media screen and (max-width: 768px) {
 	.services__container {
-		grid-template-columns: 310px;
+		grid-template-columns: 280px;
+		row-gap: 1.5rem;
+	}
+
+	.services__card {
+		padding: 1.5rem 1.25rem;
+	}
+
+	.services__img {
+		height: 60px;
+		margin-bottom: 1rem;
+	}
+
+	.services__title {
+		font-size: 1.1rem;
+		margin-bottom: 0.75rem;
+		letter-spacing: 1.5px;
+	}
+
+	.services__description {
+		font-size: 0.85rem;
+		line-height: 1.5;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.services__container {
+		grid-template-columns: 1fr;
+		max-width: 320px;
+		margin: 0 auto;
+	}
+
+	.services__card {
+		padding: 1.25rem 1rem;
+	}
+
+	.services__img {
+		height: 50px;
+		margin-bottom: 0.75rem;
+	}
+
+	.services__title {
+		font-size: 1rem;
+		margin-bottom: 0.5rem;
+		letter-spacing: 1px;
+	}
+
+	.services__description {
+		font-size: 0.8rem;
+		line-height: 1.4;
 	}
 }
 
 @media screen and (max-width: 350px) {
 	.services__container {
 		grid-template-columns: 1fr;
+		max-width: 100%;
+		padding: 0 0.5rem;
+	}
+
+	.services__card {
+		padding: 1rem 0.75rem;
+	}
+
+	.services__img {
+		height: 45px;
+		margin-bottom: 0.5rem;
+	}
+
+	.services__title {
+		font-size: 0.9rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.services__description {
+		font-size: 0.75rem;
+		line-height: 1.3;
 	}
 }

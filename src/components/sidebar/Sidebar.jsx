@@ -5,6 +5,7 @@ import LogoWhite from '../../assets/logoWhite.png';
 import { useTheme } from '../../context/theme';
 import { useLanguage } from '../../context/language';
 import { SITE_DATA } from '../../content/siteData.jsx';
+import LanguageToggle from '../languageToggle/LanguageToggle';
 
 const navLinks = [
 	{ id: 1, link: '#home', icon: 'icon-home' },
@@ -23,9 +24,14 @@ const Sidebar = () => {
 	return (
 		<>
 			<aside className={toggle ? 'aside show-menu' : 'aside'} onClick={() => showMenu(!toggle)}>
-				<a href="#home" className="nav__logo">
-					<img src={isDarkMode ? LogoWhite : Logo} alt="" className="sidebar__logo" />
-				</a>
+				<div className="nav__header">
+					<a href="#home" className="nav__logo">
+						<img src={isDarkMode ? LogoWhite : Logo} alt="" className="sidebar__logo" />
+					</a>
+					<div className="sidebar__lang-toggle">
+						<LanguageToggle />
+					</div>
+				</div>
 
 				<nav className="nav">
 					<div className="nav__menu">

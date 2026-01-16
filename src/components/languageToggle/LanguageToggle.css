@@ -13,6 +13,13 @@
   border-radius: 0;
 }
 
+.sidebar__lang-toggle .lang-toggle {
+  position: static;
+  display: inline-flex;
+  width: fit-content;
+  box-shadow: none;
+}
+
 .lang-toggle__btn {
   border: none;
   background: transparent;
@@ -36,6 +43,30 @@
   background: var(--memphis-pink);
   color: var(--memphis-black);
   box-shadow: 2px 2px 0px var(--memphis-black);
+}
+
+@media screen and (max-width: 1024px) {
+  .lang-toggle {
+    display: none;
+  }
+
+  .sidebar__lang-toggle {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .sidebar__lang-toggle .lang-toggle {
+    display: inline-flex;
+    box-shadow: none;
+  }
+}
+
+/* Show fixed toggle on desktop */
+@media screen and (min-width: 1025px) {
+  .sidebar__lang-toggle {
+    display: none;
+  }
 }
 
 

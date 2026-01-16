@@ -129,6 +129,10 @@
 }
 
 @media screen and (max-width: 768px) {
+	.contact.section .section__title {
+		margin-bottom: 2rem;
+	}
+
 	.contact__schedule {
 		padding: 0.5rem;
 		min-height: 600px;

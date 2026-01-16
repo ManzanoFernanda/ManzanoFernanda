@@ -45,6 +45,10 @@
   padding-bottom: 3rem;
 }
 
+.timeline__item-header {
+  display: contents;
+}
+
 .timeline__item:last-child {
   padding-bottom: 0;
 }
@@ -192,6 +196,61 @@
   .resume__container {
     max-width: 100%;
   }
+
+  .timeline__section-title {
+    display: none;
+  }
+
+  .timeline__item::before {
+    display: none;
+  }
+
+  .timeline__item {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    padding-bottom: 2rem;
+  }
+
+  .timeline__item-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .timeline__icon-logo {
+    position: static;
+    transform: none;
+    width: 70px;
+    height: 70px;
+    flex-shrink: 0;
+  }
+
+  .timeline .icon-briefcase,
+  .timeline .icon-graduation {
+    position: static;
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .timeline__title {
+    margin: 0;
+    flex: 1;
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+
+  .timeline__date {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline__text {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -200,24 +259,51 @@
   }
 }
 
-@media screen and (max-width: 350px) {
-  .timeline__item {
-    padding-left: 2.5rem;
-    padding-bottom: 2rem;
-  }
-
-  .timeline__item::before {
-    left: 0;
+@media screen and (max-width: 480px) {
+  .timeline__icon-logo {
+    width: 65px;
+    height: 65px;
   }
 
   .timeline .icon-briefcase,
   .timeline .icon-graduation {
-    left: -12px;
-    width: 35px;
-    height: 35px;
+    width: 65px;
+    height: 65px;
+    font-size: 1.75rem;
+  }
+
+  .timeline__title {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .timeline__item {
+    padding-bottom: 1.5rem;
+  }
+
+  .timeline__item-header {
+    gap: 0.75rem;
+  }
+
+  .timeline__icon-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .timeline .icon-briefcase,
+  .timeline .icon-graduation {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+
+  .timeline__title {
+    font-size: 1rem;
   }
 
   .timeline__text {
     text-align: justify;
+    font-size: 0.9rem;
   }
 }

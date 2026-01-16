@@ -90,7 +90,8 @@
 
 .services__img {
 	margin-bottom: 1.5rem;
-	height: 90px;
+	height: 140px;
+	width: auto;
 	filter: drop-shadow(3px 3px 0px var(--memphis-black));
 }
 
@@ -126,8 +127,10 @@
 	}
 
 	.services__img {
-		height: 60px;
+		height: 100px;
 		margin-bottom: 1rem;
+		width: auto;
+		filter: none;
 	}
 
 	.services__title {
@@ -154,8 +157,10 @@
 	}
 
 	.services__img {
-		height: 50px;
+		height: 90px;
 		margin-bottom: 0.75rem;
+		width: auto;
+		filter: none;
 	}
 
 	.services__title {
@@ -182,8 +187,10 @@
 	}
 
 	.services__img {
-		height: 45px;
+		height: 80px;
 		margin-bottom: 0.5rem;
+		width: auto;
+		filter: none;
 	}
 
 	.services__title {

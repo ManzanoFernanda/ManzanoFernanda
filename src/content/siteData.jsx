@@ -179,7 +179,7 @@ export const SITE_DATA = {
         {
           id: 10,
           icon: 'icon-briefcase',
-          year: 'Mar 2025 - Actualidad · Remoto',
+          year: 'Mar 2025 - Feb 2026 · Remoto',
           title: 'Grupo Taurus — Mobile & Frontend Developer',
           logo: logoTaurus,
           desc: (
@@ -464,7 +464,7 @@ export const SITE_DATA = {
         {
           id: 10,
           icon: 'icon-briefcase',
-          year: 'Mar 2025 - Present · Remote',
+          year: 'Mar 2025 - Feb 2026 · Remote',
           title: 'Grupo Taurus — Mobile & Frontend Developer',
           logo: logoTaurus,
           desc: (

@@ -49,6 +49,14 @@
   display: contents;
 }
 
+.timeline__expand-btn {
+  display: none;
+}
+
+.timeline__item-content {
+  display: block;
+}
+
 .timeline__item:last-child {
   padding-bottom: 0;
 }
@@ -197,6 +205,18 @@
     max-width: 100%;
   }
 
+  .timeline {
+    padding: 1.5rem 1rem;
+  }
+
+  .timeline::before {
+    display: none;
+  }
+
+  .timeline::after {
+    display: none;
+  }
+
   .timeline__section-title {
     display: none;
   }
@@ -216,30 +236,78 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .timeline__title {
+    pointer-events: none;
+  }
+
+  .timeline__expand-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--memphis-yellow);
+    border: var(--border-medium);
+    color: var(--memphis-black);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    padding: 0;
+    margin-left: auto;
+  }
+
+  .timeline__expand-btn:hover {
+    background: var(--memphis-pink);
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px var(--memphis-black);
+  }
+
+  .timeline__expand-btn svg {
+    transition: transform 0.3s ease;
+  }
+
+  .timeline__expand-btn--expanded svg {
+    transform: rotate(180deg);
+  }
+
+  .timeline__item-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, margin-top 0.3s ease;
+    margin-top: 0;
+  }
+
+  .timeline__item-content--expanded {
+    max-height: 2000px;
+    margin-top: 1rem;
   }
 
   .timeline__icon-logo {
     position: static;
     transform: none;
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
     flex-shrink: 0;
   }
 
   .timeline .icon-briefcase,
   .timeline .icon-graduation {
     position: static;
-    width: 70px;
-    height: 70px;
-    font-size: 2rem;
+    width: 90px;
+    height: 90px;
+    font-size: 2.5rem;
     flex-shrink: 0;
   }
 
   .timeline__title {
     margin: 0;
     flex: 1;
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     line-height: 1.3;
   }
 
@@ -260,24 +328,32 @@
 }
 
 @media screen and (max-width: 480px) {
+  .timeline {
+    padding: 1.25rem 0.75rem;
+  }
+
   .timeline__icon-logo {
-    width: 65px;
-    height: 65px;
+    width: 85px;
+    height: 85px;
   }
 
   .timeline .icon-briefcase,
   .timeline .icon-graduation {
-    width: 65px;
-    height: 65px;
-    font-size: 1.75rem;
+    width: 85px;
+    height: 85px;
+    font-size: 2.25rem;
   }
 
   .timeline__title {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
   }
 }
 
 @media screen and (max-width: 350px) {
+  .timeline {
+    padding: 1rem 0.5rem;
+  }
+
   .timeline__item {
     padding-bottom: 1.5rem;
   }
@@ -287,19 +363,19 @@
   }
 
   .timeline__icon-logo {
-    width: 60px;
-    height: 60px;
+    width: 75px;
+    height: 75px;
   }
 
   .timeline .icon-briefcase,
   .timeline .icon-graduation {
-    width: 60px;
-    height: 60px;
-    font-size: 1.5rem;
+    width: 75px;
+    height: 75px;
+    font-size: 2rem;
   }
 
   .timeline__title {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .timeline__text {

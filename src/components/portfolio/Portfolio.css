@@ -486,6 +486,14 @@
 	width: 100%;
 }
 
+.work__carousel-wrapper > .work__project-description {
+	order: 2;
+}
+
+.work__carousel-wrapper > .work__carousel-container {
+	order: 1;
+}
+
 /* Layout de dos columnas para Taurus App y Totem */
 .work__carousel-wrapper--two-columns {
 	flex-direction: row;
@@ -735,6 +743,11 @@
 	box-shadow: var(--shadow);
 	max-width: 100%;
 	width: 100%;
+	order: 2;
+}
+
+.work__carousel-container {
+	order: 1;
 }
 
 .work__project-title-wrapper {
@@ -804,8 +817,9 @@
 		flex-direction: row;
 		overflow-x: auto;
 		overflow-y: hidden;
+		width: 100%;
 	}
-	
+
 	.work__menu-item {
 		min-width: 150px;
 		max-width: 150px;
@@ -822,9 +836,51 @@
 	.work__menu-title {
 		font-size: 0.7rem;
 	}
+
+	.work__carousel-wrapper {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.work__carousel-wrapper > .work__project-description {
+		order: 2;
+		margin-bottom: 1.5rem;
+	}
+
+	.work__carousel-wrapper > .work__carousel-container {
+		order: 1;
+	}
+
+	.work__carousel-wrapper--two-columns {
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.work__carousel-wrapper--two-columns .work__carousel-container--left {
+		max-width: 100%;
+		order: 1;
+	}
+
+	.work__carousel-wrapper--two-columns .work__project-description--right {
+		max-width: 100%;
+		margin-bottom: 1rem;
+		order: 2;
+	}
 	
 	.work__carousel-container {
 		min-height: 500px;
+		width: 100%;
+	}
+
+	.work__carousel {
+		min-height: 500px;
+		width: 100%;
+	}
+
+	.work__carousel-image {
+		max-height: 60vh;
+		max-width: 100%;
 	}
 
 	.work__carousel-btn--prev {
@@ -834,37 +890,94 @@
 	.work__carousel-btn--next {
 		right: 10px;
 	}
+
+	.work__project-description {
+		width: 100%;
+		max-width: 100%;
+	}
 }
 
 @media screen and (max-width: 768px) {
 	.work__layout {
 		gap: 1rem;
+		flex-direction: column;
 	}
 	
 	.work__menu {
 		gap: 0.5rem;
 		padding: 0.5rem 0;
 		max-height: 250px;
+		flex-direction: row;
+		overflow-x: auto;
+		overflow-y: hidden;
+		width: 100%;
+		max-width: 100%;
 	}
 	
 	.work__menu-item {
-		min-width: 120px;
-		max-width: 120px;
-		padding: 0.5rem;
+		min-width: 220px;
+		max-width: 220px;
+		padding: 1rem;
+		flex-shrink: 0;
 	}
 	
 	.work__menu-image {
-		width: 50px;
-		height: 50px;
-		min-width: 50px;
+		width: 100%;
+		height: 120px;
+		min-width: 100%;
+		object-fit: cover;
+		border-radius: 4px;
 	}
 	
 	.work__menu-title {
-		font-size: 0.65rem;
+		font-size: 0.75rem;
+	}
+	
+	.work__carousel-wrapper {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.work__carousel-wrapper > .work__project-description {
+		order: 2;
+		margin-bottom: 1.5rem;
+	}
+
+	.work__carousel-wrapper > .work__carousel-container {
+		order: 1;
+	}
+
+	.work__carousel-wrapper--two-columns {
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.work__carousel-wrapper--two-columns .work__carousel-container--left {
+		max-width: 100%;
+		flex: 1;
+		order: 1;
+	}
+
+	.work__carousel-wrapper--two-columns .work__project-description--right {
+		max-width: 100%;
+		flex: 1;
+		margin-bottom: 1rem;
+		order: 2;
 	}
 	
 	.work__carousel-container {
 		min-height: 400px;
+		width: 100%;
+	}
+
+	.work__carousel {
+		min-height: 400px;
+		width: 100%;
+	}
+
+	.work__carousel-main {
+		padding-bottom: 60px;
 	}
 
 	.work__carousel-btn {
@@ -883,5 +996,146 @@
 
 	.work__carousel-image {
 		max-height: 50vh;
+		max-width: 100%;
+		width: auto;
+	}
+
+	.work__project-description {
+		padding: 1rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.work__project-title {
+		font-size: 1rem;
+	}
+
+	.work__project-description p {
+		font-size: 0.9rem;
+		line-height: 1.5;
+	}
+
+	.work__project-link-btn {
+		font-size: 0.7rem;
+		padding: 0.2rem 0.5rem;
+	}
+
+	.work__carousel-dots {
+		bottom: 30px;
+		gap: 0.5rem;
+	}
+
+	.work__carousel-dot {
+		width: 10px;
+		height: 10px;
+	}
+
+	.work__carousel-counter {
+		bottom: 5px;
+		font-size: 0.75rem;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.work__menu {
+		max-height: 200px;
+		gap: 0.4rem;
+	}
+
+	.work__menu-item {
+		min-width: 200px;
+		max-width: 200px;
+		padding: 0.85rem;
+	}
+
+	.work__menu-image {
+		width: 100%;
+		height: 110px;
+		min-width: 100%;
+		object-fit: cover;
+		border-radius: 4px;
+	}
+
+	.work__carousel-container {
+		min-height: 350px;
+	}
+
+	.work__carousel {
+		min-height: 350px;
+	}
+
+	.work__carousel-main {
+		padding-bottom: 50px;
+	}
+
+	.work__carousel-image {
+		max-height: 40vh;
+	}
+
+	.work__carousel-btn {
+		width: 35px;
+		height: 35px;
+		font-size: 1.75rem;
+	}
+
+	.work__project-description {
+		padding: 0.75rem;
+	}
+
+	.work__project-title {
+		font-size: 0.9rem;
+	}
+
+	.work__project-description p {
+		font-size: 0.85rem;
+	}
+
+	.work__project-link-btn {
+		font-size: 0.65rem;
+		padding: 0.15rem 0.4rem;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	.work__menu {
+		max-height: 180px;
+	}
+
+	.work__menu-item {
+		min-width: 180px;
+		max-width: 180px;
+	}
+
+	.work__menu-image {
+		width: 100%;
+		height: 100px;
+		min-width: 100%;
+		object-fit: cover;
+		border-radius: 4px;
+	}
+
+	.work__carousel-container {
+		min-height: 300px;
+	}
+
+	.work__carousel {
+		min-height: 300px;
+	}
+
+	.work__carousel-image {
+		max-height: 35vh;
+	}
+
+	.work__carousel-btn {
+		width: 30px;
+		height: 30px;
+		font-size: 1.5rem;
+	}
+
+	.work__project-title {
+		font-size: 0.85rem;
+	}
+
+	.work__project-description p {
+		font-size: 0.8rem;
 	}
 }
